@@ -3,6 +3,9 @@ all: build
 build:
 	go build -o bin/eve cmd/eve/*.go
 
+build-windows:
+	GOOS=windows GOARCH=386 go build -o bin/eve.exe cmd/eve/*.go
+
 robotgo:
 	sudo apt-get install -y gcc libc6-dev
 	sudo apt-get install -y libx11-dev xorg-dev libxtst-dev libpng++-dev
