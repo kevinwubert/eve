@@ -18,7 +18,7 @@ func main() {
 	}
 
 	for {
-		mleft := robotgo.AddEvent("mleft")
+		mleft := robotgo.AddEvent("p")
 		if mleft == 0 {
 			x, y := robotgo.GetMousePos()
 			color := robotgo.GetPixelColor(x, y)
@@ -27,10 +27,12 @@ func main() {
 				panic(err)
 			}
 
-			_, err = f.WriteString(fmt.Sprintf("%v\n", color))
+			_, err = f.WriteString(fmt.Sprintf("%v\n\n", color))
 			if err != nil {
 				panic(err)
 			}
 		}
+
+		robotgo.Sleep(1)
 	}
 }
